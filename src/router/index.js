@@ -5,7 +5,6 @@ import ProductDetail from '../views/ProductDetail.vue';
 import CartPage from '../views/CartPage.vue';
 import CheckoutPage from '../views/CheckoutPage.vue';
 import SearchPage from '../views/SearchPage.vue';
-
 import TestProductDetail from '@/components/ProductDetail/ProductOverview.vue'
 
 const router = createRouter({
@@ -30,7 +29,7 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/category/:categoryId/product/:productId',
+      path: '/product/:productName',
       name: 'product-detail',
       component: ProductDetail,
       props: true

@@ -27,6 +27,7 @@
     <PaymentMethod @validate="handleValidate" />
   </div>
 </template>
+
 <script setup>
 import { ref } from 'vue'
 import { toast } from 'vue3-toastify'
@@ -35,6 +36,7 @@ import CartSummary from '../components/Checkout/CartSummary.vue'
 import PaymentMethod from '../components/Checkout/PaymentMethod.vue'
 import { validateCustomerInformation, validatePaymentMethod } from '@/utils/FormValidation'
 
+// Reactive reference to store customer information
 const customerInformation = ref({
   email: '',
   firstName: '',
@@ -49,31 +51,45 @@ const customerInformation = ref({
   notes: ''
 })
 
+// Refs to access customer information components in large and small screens
 const customerInfoRefLg = ref(null)
 const customerInfoRefSm = ref(null)
 
+// Function to update customer information
 const updateCustomerInformation = (newInfo) => {
   customerInformation.value = newInfo
 }
 
+// Function to handle form validation
 const handleValidate = () => {
+  // Validate customer information and payment method
   const errors = validateCustomerInformation(customerInformation.value)
   const paymentErrors = validatePaymentMethod()
 
+  // Check if there are any errors
   if (errors.length || paymentErrors.length) {
-    errors.concat(paymentErrors).forEach((error) => {
-      toast.error(error)
+    // Combine all errors into a single string
+    const allErrors = [...errors, ...paymentErrors].join('\n')
+    // Display all errors in a single toast
+    toast.error(allErrors, {
+      autoClose: 5000,
+      position: 'top-center'
     })
+    // Scroll to the customer information section
     scrollToCustomerInformation()
   } else {
+    // Display success message if no errors
     toast.success('Order confirmed successfully!')
   }
 }
 
+// Function to scroll to the customer information section
 const scrollToCustomerInformation = () => {
+  // Get references to the customer information components
   const elementLg = customerInfoRefLg.value?.$el
   const elementSm = customerInfoRefSm.value?.$el
 
+  // Scroll to the appropriate component based on screen size
   if (window.innerWidth >= 1024 && elementLg) {
     elementLg.scrollIntoView({ behavior: 'smooth' })
   } else if (elementSm) {

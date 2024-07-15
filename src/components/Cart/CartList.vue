@@ -44,8 +44,7 @@
           </h6>
         </div>
         <div class="col-span-1 flex justify-center cursor-pointer" @click="deleteFromCart(product.name)">
-          <img :src="trash" alt="trash icon" class="w-5 h-5" />
-        </div>
+          <i class="fa-solid fa-trash"></i>        </div>
       </div>
       <div class="border-b-2 border-lightGray"></div>
     </div>
@@ -57,7 +56,6 @@
 
 <script setup>
 import LoadSpinner from '@/components/Other/LoadSpinner.vue'
-import trash from '@/assets/images/trash.png'
 import { useCartStore } from '@/stores/cart'
 import { computed } from 'vue'
 import { currencyFormat } from '@/utils/CurrencyFormat'

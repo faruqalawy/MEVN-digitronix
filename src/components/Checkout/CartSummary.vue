@@ -3,10 +3,10 @@
   <div class="summary-toggle border-b-2 border-t-2 border-[#d9d9d9] bg-offWhite lg:hidden" @click="toggleCart">
     <div class="custom-display flex justify-between p-5">
       <div class="flex gap-1.5">
-        <h6 class="md:text-h5">{{ isCartOpen ? 'Hide Your Order' : 'Show Your Order' }}</h6>
+        <h5>{{ isCartOpen ? 'Hide Your Order' : 'Show Your Order' }}</h5>
         <i :class="['fa-solid fa-chevron-down pt-0.5 transition-transform duration-300', { 'rotate-180': isCartOpen }]"></i>
       </div>
-      <h6 class="md:text-h5">Rp {{ currencyFormat(totalCartPrice) }}</h6>
+      <h5>Rp {{ currencyFormat(totalCartPrice) }}</h5>
     </div>
   </div>
 
@@ -26,13 +26,13 @@
           <div class="col-span-2">
             <img :src="product.image" :alt="product.name" />
           </div>
-          <h6 class="col-span-6 md:text-h5">
+          <h5 class="col-span-6">
             {{ product.name }}
-          </h6>
-          <h6 class="col-span-1 flex justify-center md:text-h5">x {{ product.quantity }}</h6>
-          <h6 class="col-span-3 flex justify-end md:text-h5">
+          </h5>
+          <h5 class="col-span-1 flex justify-center">x {{ product.quantity }}</h5>
+          <h5 class="col-span-3 flex justify-end">
             Rp {{ currencyFormat(product.price * product.quantity) }}
-          </h6>
+          </h5>
         </div>
       </div>
       <div class="row-style mb-3">

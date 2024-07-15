@@ -1,7 +1,7 @@
 <template>
   <!-- Trigger handleCartClick when the cart icon is clicked -->
-  <div @click="handleCartClick" class="flex items-center gap-1 cursor-pointer">
-    <img src="/assets/images/cart.png" alt="cart" />
+  <div @click="handleCartClick" class="flex items-center gap-2 cursor-pointer">
+    <i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>
     <!-- Cart icon image -->
     <!-- Display the number of items in the cart -->
     <span class="bg-white rounded-full px-2">{{ cart.length }}</span>

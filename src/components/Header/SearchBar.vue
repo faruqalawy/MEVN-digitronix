@@ -7,7 +7,7 @@
           placeholder="Search product..."
           @keyup.enter="handleSearch"
         />
-        <img src="/assets/images/search.png" class="p-2 cursor-pointer search-icon" alt="search" @click="handleSearch" />
+        <i class="fa-solid fa-magnifying-glass p-2 cursor-pointer" style="color: #0c3b66;" @click="handleSearch"></i>
       </div>
 </template>
 <script setup>

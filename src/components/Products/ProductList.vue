@@ -16,7 +16,7 @@
           <router-link 
             :to="{
               name: 'product-detail',
-              params: { categoryId: category.id, productId: product.id }
+              params: { categoryId: category.id, productName: product.name }
             }"
           >
             <img :src="product.image" :alt="product.name" class="w-full" />

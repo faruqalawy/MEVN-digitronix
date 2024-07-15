@@ -67,8 +67,7 @@ const product = ref(null)
 const quantity = ref(1)
 
 const route = useRoute()
-const productId = ref(Number(route.params.productId))
-const categoryId = ref(Number(route.params.categoryId))
+const productName = ref(route.params.productName)
 
 function handleIncrement() {
   quantity.value++
@@ -106,13 +105,11 @@ function handleAddToCart() {
 
 const loadProduct = () => {
   if (categories.value.length > 0) {
-    const category = categories.value.find((category) => Number(category.id) === categoryId.value)
-    if (category) {
-      const foundProduct = category.products.find(
-        (product) => Number(product.id) === productId.value
-      )
+    for (const category of categories.value) {
+      const foundProduct = category.products.find((prod) => prod.name === productName.value)
       if (foundProduct) {
         product.value = foundProduct
+        break
       }
     }
   }
@@ -124,11 +121,10 @@ onMounted(async () => {
 })
 
 watch(
-  () => route.params,
-  (params) => {
-    categoryId.value = Number(params.categoryId)
-    productId.value = Number(params.productId)
-    loadProduct() // Fetch new product data when categoryId or productId changes
+  () => route.params.productName,
+  (newProductName) => {
+    productName.value = newProductName
+    loadProduct()
   }
 )
 </script>

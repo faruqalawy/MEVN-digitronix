@@ -14,7 +14,7 @@
         <router-link
           :to="{
             name: 'product-detail',
-            params: { categoryId: categoryId.value, productId: product.id }
+            params: { categoryId: categoryId.value, productName: product.id }
           }"
         >
           <img :src="product.image" :alt="product.name" class="w-full my-5" />
@@ -38,7 +38,7 @@ const { categories, error, isLoading, loadCategories } = getCategories()
 const relatedProduct = ref([])
 const route = useRoute()
 const categoryId = ref(Number(route.params.categoryId))
-const productId = ref(Number(route.params.productId))
+const productName = ref(Number(route.params.productName))
 
 const loadRelatedProducts = () => {
   if (categories.value.length > 0) {
@@ -61,7 +61,7 @@ watch(
   () => route.params,
   (params) => {
     categoryId.value = Number(params.categoryId)
-    productId.value = Number(params.productId)
+    productName.value = Number(params.productName)
     loadRelatedProducts() // Fetch new related products when categoryId changes
   })
 </script>
