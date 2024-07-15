@@ -1,0 +1,95 @@
+{
+  "best": [
+    {
+      "id": 2,
+      "name": "SpeedBook Ryzen - AMD Ryzen 9, 16GB RAM, 512GB SSD",
+      "price": 18000000,
+      "image": "/assets/images/best-1.png",
+      "categoryId": 6
+    },
+    {
+      "id": 5,
+      "name": "Quantum Drone X High Performance Aerial Camera",
+      "price": 1200000,
+      "image": "/assets/images/best-2.png",
+      "categoryId": 7
+    },
+    {
+      "id": 6,
+      "name": "HeatWave Pro - 1200W, 1.2 cu ft, Inverter Technology",
+      "price": 800000,
+      "image": "/assets/images/best-3.png",
+      "categoryId": 5
+    } 
+  ],
+  "pros": [
+    {
+      "id": 1,
+      "name": "pros 1",
+      "description": "Free shipping orders",
+      "image": "/assets/images/shipping.png"
+    },
+    {
+      "id": 2,
+      "name": "pros 2",
+      "description": "Low price guaranteed",
+      "image": "/assets/images/price.png"
+    },
+    {
+      "id": 3,
+      "name": "pros 3",
+      "description": "Secure payment method",
+      "image": "/assets/images/payment.png"
+    },
+    {
+      "id": 4,
+      "name": "pros 4",
+      "description": "Available to you 24/7",
+      "image": "/assets/images/alarm.png"
+    }
+  ],
+  "testimonial": [
+    {
+      "id": 1,
+      "name": "Rini Susanto",
+      "testimony": "\"Shopping on this website has been a fantastic. The product descriptions are detailed, and the customer service is top-notch. I received my new smartphone faster than expected!\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    },
+    {
+      "id": 2,
+      "name": "Andi Pratama",
+      "testimony": "\"I recently bought a laptop from here, and I couldn't be happier. The performance is exactly as advertised, and the price was unbeatable. I highly recommend this site for all your electronic needs.\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    },
+    {
+      "id": 3,
+      "name": "Dewi Kartika",
+      "testimony": "\"The variety of products available is amazing. I found everything I needed for my home office. The checkout process was smooth, and delivery was prompt. Excellent service!\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    },
+    {
+      "id": 4,
+      "name": "Rizal Maulana",
+      "testimony": "\"Shopping on this website has been a fantastic. The product descriptions are detailed, and the customer service is top-notch. I received my new smartphone faster than expected!\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    },
+    {
+      "id": 5,
+      "name": "Tia Suryani",
+      "testimony": "\"Shopping on this website has been a fantastic. The product descriptions are detailed, and the customer service is top-notch. I received my new smartphone faster than expected!\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    },
+    {
+      "id": 6,
+      "name": "Asep Hartanto",
+      "testimony": "\"Shopping on this website has been a fantastic. The product descriptions are detailed, and the customer service is top-notch. I received my new smartphone faster than expected!\"",
+      "image": "/assets/images/testimonial.jpg",
+      "starImage": "/assets/images/five-star.png"
+    }
+  ]
+}

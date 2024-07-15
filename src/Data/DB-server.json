@@ -1,0 +1,702 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Audio & Video",
+      "image": "/assets/images/category-1.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "UltraSound Bluetooth Speaker",
+          "price": 500000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "360-degree sound",
+            "10-hour battery life",
+            "Water-resistant",
+            "Bluetooth 5.0",
+            "Built-in microphone"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "CinemaSound Home Theater System",
+          "price": 15000000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "7.1 surround sound",
+            "Dolby Atmos",
+            "Wireless subwoofer",
+            "4K pass-through",
+            "Voice control"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "MegaBass Wireless Headphones",
+          "price": 1200000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "Noise cancellation",
+            "20-hour battery life",
+            "Comfortable ear pads",
+            "Built-in microphone",
+            "Fast charging"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "CrystalClear 4K TV",
+          "price": 8000000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "4K Ultra HD resolution",
+            "HDR support",
+            "Smart TV",
+            "Voice control",
+            "Thin bezel design"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "SoundWave Portable Speaker",
+          "price": 750000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "Compact design",
+            "8-hour battery life",
+            "Waterproof",
+            "Bluetooth 5.0",
+            "Enhanced bass"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "HiFi Stereo System",
+          "price": 2500000,
+          "image": "/assets/images/category-1.png",
+          "features": [
+            "CD player",
+            "FM/AM radio",
+            "Bluetooth connectivity",
+            "Remote control",
+            "Multiple input options"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Gadgets",
+      "image": "/assets/images/category-2.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "SmartWatch X Pro",
+          "price": 2500000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "Heart rate monitor",
+            "GPS tracking",
+            "Waterproof",
+            "Touchscreen display",
+            "App notifications"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Virtual Reality Headset",
+          "price": 5000000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "4K display",
+            "360-degree tracking",
+            "Comfortable fit",
+            "Built-in headphones",
+            "Wireless connection"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Smart Home Assistant",
+          "price": 1500000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "Voice control",
+            "Smart home integration",
+            "Music streaming",
+            "Weather updates",
+            "Bluetooth speaker"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Wireless Charging Pad",
+          "price": 300000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "Fast charging",
+            "Overheat protection",
+            "LED indicator",
+            "Compact design",
+            "Universal compatibility"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "4K Action Camera",
+          "price": 2000000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "4K video recording",
+            "Waterproof",
+            "Image stabilization",
+            "Wide-angle lens",
+            "Wi-Fi connectivity"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Portable Power Bank",
+          "price": 600000,
+          "image": "/assets/images/category-2.png",
+          "features": [
+            "10000mAh capacity",
+            "Fast charging",
+            "LED flashlight",
+            "Compact design",
+            "Multiple USB ports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Gaming",
+      "image": "/assets/images/category-3.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "Gaming Laptop Pro",
+          "price": 22000000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "Intel Core i9",
+            "16GB RAM",
+            "NVIDIA RTX 3080",
+            "1TB SSD",
+            "RGB keyboard"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "4K Gaming Monitor",
+          "price": 10000000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "4K resolution",
+            "144Hz refresh rate",
+            "HDR support",
+            "G-Sync compatible",
+            "Adjustable stand"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Mechanical Gaming Keyboard",
+          "price": 1500000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "Mechanical switches",
+            "RGB backlighting",
+            "Programmable keys",
+            "Ergonomic design",
+            "USB passthrough"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Gaming Mouse Pro",
+          "price": 500000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "Adjustable DPI",
+            "RGB lighting",
+            "Ergonomic design",
+            "Programmable buttons",
+            "Ultra-lightweight"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "VR Gaming System",
+          "price": 12000000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "4K VR headset",
+            "360-degree tracking",
+            "Wireless controllers",
+            "Built-in audio",
+            "Comfortable fit"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Wireless Gaming Headset",
+          "price": 2500000,
+          "image": "/assets/images/category-3.png",
+          "features": [
+            "Surround sound",
+            "Noise cancellation",
+            "Long battery life",
+            "Comfortable fit",
+            "Wireless range"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Home Appliances",
+      "image": "/assets/images/category-4.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "Smart Air Conditioner",
+          "price": 6000000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "Remote control",
+            "Energy saving mode",
+            "Wi-Fi connectivity",
+            "Quiet operation",
+            "Smart scheduling"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Robot Vacuum Cleaner",
+          "price": 4000000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "Auto navigation",
+            "App control",
+            "HEPA filter",
+            "Self-charging",
+            "Multiple cleaning modes"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Smart Washing Machine",
+          "price": 8000000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "AI wash cycle",
+            "Energy efficient",
+            "Wi-Fi control",
+            "Large capacity",
+            "Quick wash option"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Smart Refrigerator",
+          "price": 12000000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "Touchscreen display",
+            "Energy efficient",
+            "Wi-Fi control",
+            "Ice and water dispenser",
+            "Smart temperature control"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Air Purifier Pro",
+          "price": 2500000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "HEPA filter",
+            "Smart sensors",
+            "Quiet operation",
+            "Wi-Fi control",
+            "Air quality display"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Smart Thermostat",
+          "price": 3000000,
+          "image": "/assets/images/category-4.png",
+          "features": [
+            "Remote control",
+            "Energy saving mode",
+            "Touchscreen display",
+            "Wi-Fi connectivity",
+            "Smart scheduling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Kitchen Appliances",
+      "image": "/assets/images/category-5.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "Smart Oven",
+          "price": 5000000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "Wi-Fi control",
+            "Multiple cooking modes",
+            "Touchscreen display",
+            "Self-cleaning",
+            "Energy efficient"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Automatic Coffee Maker",
+          "price": 1500000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "Programmable settings",
+            "Built-in grinder",
+            "Auto shut-off",
+            "Multiple brew sizes",
+            "Easy to clean"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Smart Blender",
+          "price": 1000000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "Multiple speed settings",
+            "Touchscreen display",
+            "Self-cleaning",
+            "Durable blades",
+            "Large capacity"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Food Processor",
+          "price": 2000000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "Multiple attachments",
+            "Large capacity",
+            "Easy to clean",
+            "Durable construction",
+            "Safety features"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Dishwasher Pro",
+          "price": 4000000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "Energy efficient",
+            "Quiet operation",
+            "Multiple wash cycles",
+            "Delay start",
+            "Smart sensors"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "HeatWave Pro - 1200W, 1.2 cu ft, Inverter Technology",
+          "price": 800000,
+          "image": "/assets/images/category-5.png",
+          "features": [
+            "1200W High Power for Fast Cooking and Heating",
+            "1.2 Cubic Feet Capacity for Large Meals",
+            "Advanced Inverter Technology for Even Heating",
+            "10 Power Levels and 6 Preset Cooking Modes",
+            "Easy-to-Use Digital Display and Timer Function"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "PC & Laptops",
+      "image": "/assets/images/category-6.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "TechMaster i9 Pro - Intel Core i9, 32GB RAM, 1TB SSD",
+          "price": 19000000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "Intel Core i9",
+            "32GB RAM",
+            "1TB SSD",
+            "NVIDIA RTX 3080",
+            "4K display"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "SpeedBook Ryzen X - AMD Ryzen 9, 16GB RAM, 512GB SSD",
+          "price": 18000000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "AMD Ryzen 9",
+            "16GB RAM",
+            "512GB SSD",
+            "Radeon RX 6800M",
+            "144Hz display"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "UltraNote Elite - Intel Core i7, 16GB RAM, 512GB SSD",
+          "price": 12000000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "Intel Core i7",
+            "16GB RAM",
+            "512GB SSD",
+            "NVIDIA GTX 1660 Ti",
+            "Full HD display"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "PowerLaptop Max - Intel Core i5, 8GB RAM, 256GB SSD",
+          "price": 9500000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "Intel Core i5",
+            "8GB RAM",
+            "256GB SSD",
+            "Intel Iris Xe Graphics",
+            "Full HD display"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "ProBook Ultra - AMD Ryzen 7, 16GB RAM, 1TB SSD",
+          "price": 12000000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "AMD Ryzen 7",
+            "16GB RAM",
+            "1TB SSD",
+            "Radeon Vega 10",
+            "Full HD display"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "SlimBook X Pro - Intel Core i5, 16GB RAM, 512GB SSD",
+          "price": 11000000,
+          "image": "/assets/images/product-laptop.png",
+          "features": [
+            "Intel Core i5",
+            "16GB RAM",
+            "512GB SSD",
+            "Intel Iris Xe Graphics",
+            "Full HD display"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Photography",
+      "image": "/assets/images/category-7.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "Professional DSLR Camera",
+          "price": 20000000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "45.7 Megapixel sensor",
+            "4K video recording",
+            "Dual card slots",
+            "Built-in Wi-Fi",
+            "Weather-sealed body"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "4K Mirrorless Camera",
+          "price": 15000000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "24.2 Megapixel CMOS Sensor",
+            "4K Ultra HD Video Recording",
+            "In-Body Image Stabilization",
+            "Touchscreen LCD Display",
+            "Wi-Fi and Bluetooth Connectivity"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Photography Lighting Kit",
+          "price": 3000000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "Adjustable brightness",
+            "Color temperature control",
+            "Portable design",
+            "Includes light stands",
+            "Battery and AC power"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "High-Resolution Lens",
+          "price": 10000000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "F1.4 aperture",
+            "Autofocus",
+            "Weather-sealed",
+            "Anti-reflective coating",
+            "Compatible with multiple mounts"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Quantum Drone X High Performance Aerial Camera",
+          "price": 1200000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "4K camera",
+            "GPS tracking",
+            "Long flight time",
+            "Stabilized gimbal",
+            "Live video streaming"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Portable Photo Printer",
+          "price": 2000000,
+          "image": "/assets/images/category-7.png",
+          "features": [
+            "Wireless printing",
+            "Compact design",
+            "High-quality prints",
+            "Compatible with multiple devices",
+            "Easy to use"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Wearable Devices",
+      "image": "/assets/images/category-8.png",
+      "products": [
+        {
+          "id": 1,
+          "name": "Fitness Tracker",
+          "price": 1000000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "Heart rate monitor",
+            "Step counter",
+            "Sleep tracking",
+            "Waterproof",
+            "Long battery life"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Smartwatch",
+          "price": 2500000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "Touchscreen display",
+            "App notifications",
+            "GPS tracking",
+            "Heart rate monitor",
+            "Waterproof"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Smart Glasses",
+          "price": 5000000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "AR display",
+            "Voice control",
+            "Bluetooth connectivity",
+            "Lightweight design",
+            "Long battery life"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Health Monitor Band",
+          "price": 1500000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "Heart rate monitor",
+            "Blood pressure monitor",
+            "Sleep tracking",
+            "Waterproof",
+            "Long battery life"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Bluetooth Earbuds",
+          "price": 1000000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "Wireless charging",
+            "Noise cancellation",
+            "Touch controls",
+            "Water-resistant",
+            "Long battery life"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Wearable ECG Monitor",
+          "price": 3000000,
+          "image": "/assets/images/category-8.png",
+          "features": [
+            "ECG monitoring",
+            "Heart rate tracking",
+            "Bluetooth connectivity",
+            "Long battery life",
+            "Compact and lightweight",
+            "Real-time heart health data",
+            "User-friendly mobile app"
+          ]
+        }
+      ]
+    }
+  ],
+  "cart": [
+    {
+      "id": 5,
+      "name": "4K Action Camera",
+      "price": 2000000,
+      "quantity": 3,
+      "image": "/assets/images/category-2.png"
+    },
+    {
+      "id": 2,
+      "name": "Robot Vacuum Cleaner",
+      "price": 4000000,
+      "quantity": 5,
+      "image": "/assets/images/category-4.png"
+    }
+  ]
+}
