@@ -12,7 +12,6 @@
 <script setup>
 import data from '../../Data/DB-local.json'
 
-
 </script>
 
 <style scoped>

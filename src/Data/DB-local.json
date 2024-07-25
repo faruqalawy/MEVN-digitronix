@@ -4,21 +4,21 @@
       "id": 2,
       "name": "SpeedBook Ryzen X - AMD Ryzen 9, 16GB RAM, 512GB SSD",
       "price": 18000000,
-      "image": "/assets/images/best-1.png",
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_auto,q_auto/v1/digitronix/best-1",
       "categoryId": 6
     },
     {
       "id": 5,
       "name": "Quantum Drone X High Performance Aerial Camera",
       "price": 1200000,
-      "image": "/assets/images/best-2.png",
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_auto,q_auto/v1/digitronix/best-2",
       "categoryId": 7
     },
     {
       "id": 6,
       "name": "HeatWave Pro - 1200W, 1.2 cu ft, Inverter Technology",
       "price": 800000,
-      "image": "/assets/images/best-3.png",
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_auto,q_auto/v1/digitronix/best-3",
       "categoryId": 5
     } 
   ],
@@ -27,25 +27,25 @@
       "id": 1,
       "name": "pros 1",
       "description": "Free shipping orders",
-      "image": "/assets/images/shipping.png"
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_svg,q_auto/v1/digitronix/shipping-icon"
     },
     {
       "id": 2,
       "name": "pros 2",
       "description": "Low price guaranteed",
-      "image": "/assets/images/price.png"
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_svg,q_auto/v1/digitronix/price-icon"
     },
     {
       "id": 3,
       "name": "pros 3",
       "description": "Secure payment method",
-      "image": "/assets/images/payment.png"
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_svg,q_auto/v1/digitronix/payment-icon"
     },
     {
       "id": 4,
       "name": "pros 4",
       "description": "Available to you 24/7",
-      "image": "/assets/images/alarm.png"
+      "image": "https://res.cloudinary.com/dnwvsqlh1/image/upload/f_svg,q_auto/v1/digitronix/alarm-icon"
     }
   ],
   "testimonial": [

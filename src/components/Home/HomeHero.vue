@@ -4,7 +4,7 @@
     :style="{
       backgroundImage: `linear-gradient(to bottom, rgba(241, 241, 241, 1) 0%, rgba(241, 241, 241, 0) 80%), 
                         linear-gradient(to right, rgba(241, 241, 241, 1) 0%, rgba(241, 241, 241, 0) 85%),
-                        url(${backgroundImage})`,
+                        url(https://res.cloudinary.com/dnwvsqlh1/image/upload/f_auto,q_auto/v1/digitronix/home-hero-background)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }"
@@ -27,7 +27,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import backgroundImage from '@/assets/images/home-background.png'
-</script>

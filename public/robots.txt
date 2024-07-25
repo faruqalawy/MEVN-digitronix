@@ -1,0 +1,6 @@
+# Allow all crawlers to access everything
+User-agent: *
+Disallow:
+
+# Provide the sitemap
+Sitemap: https://digitronix-vue-project.vercel.app/sitemap.xml
