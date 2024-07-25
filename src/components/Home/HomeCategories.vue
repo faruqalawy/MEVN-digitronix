@@ -17,7 +17,7 @@
           <div class="flex flex-col items-center">
             <img :src="category.image" :alt="category.name" />
             <p class="md:text-h4 text-center">{{ category.name }}</p>
-            <h6 class="text-black/50 md:text-h5">{{ category.products.length }} Products</h6>
+            <h1 class="text-h6 text-black/50 md:text-h5">{{ category.products.length }} Products</h1>
           </div>
         </router-link>
       </div>

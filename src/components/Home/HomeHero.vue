@@ -16,13 +16,15 @@
           Affordability, Get All Your <br />
           Favourite Items Here
         </h3>
-        <h5 class="md:text-h4 lg:text-h2 font-light lg:my-3">Smart Choices for Smart Living</h5>
-        <button
-          type="button"
-          class="text-white bg-brightYellow py-1.5 lg:py-3 px-8 lg:px-14 rounded-full md:text-h4 lg:text-h3 font-normal"
-        >
-          <a href="#categories"> Shop Now </a>
-        </button>
+        <h3 class="text-h5 md:text-h4 lg:text-h2 font-light lg:my-3">Smart Choices for Smart Living</h3>
+        <a href="#categories">
+          <button
+            type="button"
+            class="text-white bg-brightYellow py-2 lg:py-3 px-8 lg:px-14 rounded-full md:text-h4 lg:text-h3 font-normal mt-2"
+          >
+            Shop Now
+          </button>
+        </a>
       </div>
     </div>
   </div>

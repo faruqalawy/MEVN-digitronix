@@ -11,12 +11,15 @@
           </router-link>
         </div>
       </div>
-      <button
-        type="button"
-        class="text-white bg-brightYellow py-1.5 lg:py-3 px-8 lg:px-14 rounded-full md:text-h4 lg:text-h3 font-normal mb-8"
-      >
-        <a href="#categories">Show More</a>
-      </button> 
+      <a href="#categories">
+
+        <button
+          type="button"
+          class="text-white bg-brightYellow py-2 lg:py-3 px-8 lg:px-14 rounded-full md:text-h4 lg:text-h3 font-normal mb-8"
+        >
+          Show More
+        </button> 
+      </a>
     </div>
   </div>
 </template>

@@ -16,8 +16,8 @@
           <img :src="product.image" :alt="product.name" class="lg:w-9/12" />
         </div>
         <div class="col-span-5">
-          <h6 class="text-brightYellow md:text-h5 lg:text-h4">{{ product.name }}</h6>
-          <h6 class="md:text-[14px] lg:text-h5">Rp {{ currencyFormat(product.price) }}</h6>
+          <h1 class="text-h6 text-brightYellow md:text-h5 lg:text-h4">{{ product.name }}</h1>
+          <h1 class="text-h6 md:text-[14px] lg:text-h5">Rp {{ currencyFormat(product.price) }}</h1>
           <div
             class="flex items-center max-w-48 border rounded-md overflow-hidden"
           >
@@ -39,9 +39,9 @@
               +
             </button>
           </div>
-          <h6 class="mt-1 md:text-[14px] lg:text-h5">
+          <h1 class="text-h6 mt-1 md:text-[14px] lg:text-h5">
             Total: Rp {{ currencyFormat(product.price * product.quantity) }}
-          </h6>
+          </h1>
         </div>
         <div class="col-span-1 flex justify-center cursor-pointer" @click="deleteFromCart(product.name)">
           <i class="fa-solid fa-trash"></i>        </div>

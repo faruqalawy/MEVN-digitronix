@@ -3,15 +3,15 @@
   <div class="border-b-2 border-lightGray"></div>
   <div class="my-7">
     <div class="flex justify-between">
-      <h5>Subtotal</h5>
-      <h5>Rp {{ currencyFormat(totalCartPrice) }}</h5>
+      <h1 class="text-h5">Subtotal</h1>
+      <h1 class="text-h5">Rp {{ currencyFormat(totalCartPrice) }}</h1>
     </div>
     <div class="flex justify-between mt-4">
-      <h5>
+      <h1 class="text-h5">
         Delivery
         <!-- <br><span class="underline">West Java, Indonesia</span> -->
-      </h5>
-      <h5>FREE</h5>
+      </h1>
+      <h1 class="text-h5">FREE</h1>
     </div>
   </div>
   <div class="border-b-2 border-lightGray"></div>

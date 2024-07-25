@@ -18,8 +18,8 @@
           }"
         >
           <img :src="product.image" :alt="product.name" class="w-full my-5" />
-          <h6 class="md:text-h5">{{ product.name }}</h6>
-          <h6 class="text-brightYellow md:text-h5">Rp {{ currencyFormat(product.price) }}</h6>
+          <h1 class="text-h6 md:text-h5">{{ product.name }}</h1>
+          <h1 class="text-h6 text-brightYellow md:text-h5">Rp {{ currencyFormat(product.price) }}</h1>
         </router-link>
       </div>
     </div>

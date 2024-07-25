@@ -64,7 +64,7 @@ const { categories } = getCategories()
   </div>
   <div class="bg-darkBlue py-7">
     <div class="custom-display">
-      <h6 class="text-white/60 text-center">Copyright © 2024 Digitronix. All rights reserved.</h6>
+      <h1 class="text-h6 text-white/60 text-center">Copyright © 2024 Digitronix. All rights reserved.</h1>
     </div>
   </div>
 </template>
