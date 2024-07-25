@@ -4,7 +4,7 @@
       <h4 class="mt-5">Best Seller</h4>
       <div class="flex flex-col gap-5 md:flex-row mx-12">
         <div v-for="best in data.best" :key="best.id" class="border border-lightGray font-14">
-          <router-link :to="{ name: 'product-detail', params: { categoryId: best.categoryId, productName: best.name } }">
+          <router-link :to="{ name: 'product-detail', params: { productName: best.name } }">
             <img :src="best.image" alt="best product" />
             <p class="mx-3">{{ best.name }}</p>
             <p class="text-brightYellow mx-3 mb-10">Rp {{ currencyFormat(best.price) }}</p>
@@ -20,6 +20,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import data from '../../Data/DB-local.json'
 import { currencyFormat } from '@/utils/CurrencyFormat';

@@ -14,7 +14,7 @@
         <router-link
           :to="{
             name: 'product-detail',
-            params: { categoryId: categoryId.value, productName: product.id }
+            params: { productName: product.name }
           }"
         >
           <img :src="product.image" :alt="product.name" class="w-full my-5" />
@@ -25,29 +25,38 @@
     </div>
   </div>
 </template>
+
 <script setup>
-import { onMounted, ref, watch} from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-
 import LoadSpinner from '../Other/LoadSpinner.vue'
-
 import getCategories from '@/composable/getCategories'
 import { currencyFormat } from '@/utils/CurrencyFormat'
 
 const { categories, error, isLoading, loadCategories } = getCategories()
 const relatedProduct = ref([])
 const route = useRoute()
-const categoryId = ref(Number(route.params.categoryId))
-const productName = ref(Number(route.params.productName))
+const productName = ref(route.params.productName)
 
 const loadRelatedProducts = () => {
   if (categories.value.length > 0) {
-    const relatedCategory = categories.value.find(
-      (category) => Number(category.id) === categoryId.value
-    )
-    if (relatedCategory) {
-      const shuffledProducts = relatedCategory.products.sort(() => 0.5 - Math.random())
-      relatedProduct.value = shuffledProducts.slice(0, 2)
+    let currentCategory = null;
+    // Find the category of the current product
+    for (const category of categories.value) {
+      const foundProduct = category.products.find((prod) => prod.name === productName.value)
+      if (foundProduct) {
+        currentCategory = category;
+        break;
+      }
+    }
+
+    if (currentCategory) {
+      // Get all products in the same category, excluding the current product
+      const relatedProducts = currentCategory.products.filter(product => product.name !== productName.value)
+      
+      // Shuffle and pick 3 random products
+      const shuffledProducts = relatedProducts.sort(() => 0.5 - Math.random())
+      relatedProduct.value = shuffledProducts.slice(0, 3)
     }
   }
 }
@@ -58,10 +67,10 @@ onMounted(async () => {
 })
 
 watch(
-  () => route.params,
-  (params) => {
-    categoryId.value = Number(params.categoryId)
-    productName.value = Number(params.productName)
-    loadRelatedProducts() // Fetch new related products when categoryId changes
-  })
+  () => route.params.productName,
+  (newProductName) => {
+    productName.value = newProductName
+    loadRelatedProducts()
+  }
+)
 </script>
