@@ -7,13 +7,13 @@
   </div>
   <div v-if="!error && !isLoading && filteredProducts.length" class="custom-display my-8">
     <h3 class="mb-5 text-darkBlue">Search Results for: '{{ query }}'</h3>
-    <h3 class="text-h6 mb-2.5 lg:text-h5">{{ filteredProducts.length }} Products</h3>
+    <h3 class="text-h5 mb-2.5 lg:text-h4">{{ filteredProducts.length }} Products</h3>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-x-3 md:gap-x-5 gap-y-5 md:gap-y-12">
       <div v-for="product in filteredProducts" :key="product.id">
         <router-link :to="{ name: 'product-detail', params: { productName: product.name }}">
           <img :src="product.image" />
-          <h3 class="text-h6 md:text-h5">{{ product.name }}</h3>
-          <h3 class="text-h6 text-brightYellow md:text-h5 md:mt-1">Rp {{ currencyFormat(product.price) }}</h3>
+          <h3 class="text-[14px] lg:text-h4">{{ product.name }}</h3>
+          <h3 class="text-h6 text-brightYellow lg:text-[18px] md:mt-1">Rp {{ currencyFormat(product.price) }}</h3>
         </router-link>
       </div>
     </div>
