@@ -6,6 +6,7 @@ export const register = async (req, res) => {
     const { username, email, password } = req.body;
     const user = new User({ username, email });
     const registeredUser = await User.register(user, password);
+    const sessionID = req.sessionID;
     req.login(registeredUser, (error) => {
       if (error) {
         console.error(error);
@@ -16,7 +17,7 @@ export const register = async (req, res) => {
       res
         .status(201)
         .json({
-          user: registeredUser,
+          user: sessionID,
           message: "Login and Registration successful",
         });
     });
@@ -25,17 +26,20 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res, next) => {
-  passport.authenticate("local", (error, user) => {
-    if (error) return res.status(400).json({ message: "Login failed" });
-    if (!user)
-      return res.status(403).json({ message: "Invalid username or password" });
-    req.login(user, (error) => {
-      if (error) return res.status(400).json({ message: "Login failed" });
-      res.status(200).json({ user, message: "Login successful" });
-    });
-  })(req, res, next);
+export const login = (req, res) => {
+  // Pada titik ini, req.user sudah tersedia karena middleware passport.authenticate sudah memverifikasinya
+  const sessionID = req.sessionID;
+
+  console.log("Session ID: " + sessionID);
+  console.log("User: ", req.user); // Anda bisa log data user untuk debugging jika diperlukan
+  
+  res.status(200).json({
+    user: req.user,  // Mengirim data user yang sudah di-autentikasi
+    sessionID: sessionID,
+    message: "Login successful"
+  });
 };
+
 
 export const logout = (req, res) => {
   req.logout((error) => {
