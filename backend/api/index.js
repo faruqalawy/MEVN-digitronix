@@ -79,6 +79,8 @@ app.use("/cart", CartRoute);
 app.use("/categories", CategoryRoute);
 app.use("/transactions", TransactionRoute);
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.listen(process.env.APP_PORT, () => {
   console.log(
     `Server running on port http://localhost:${process.env.APP_PORT}`
