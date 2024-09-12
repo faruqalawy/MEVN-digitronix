@@ -24,7 +24,7 @@
       :customerInformation="customerInformation"
       @update:customerInformation="updateCustomerInformation"
     />
-    <PaymentMethod @validate="handleValidate" />
+    <PaymentMethod @validate="handleValidate" :customerInformation="customerInformation" />
   </div>
 </template>
 
@@ -34,7 +34,7 @@ import { toast } from 'vue3-toastify'
 import CustomerInformation from '../components/Checkout/CustomerInformation.vue'
 import CartSummary from '../components/Checkout/CartSummary.vue'
 import PaymentMethod from '../components/Checkout/PaymentMethod.vue'
-import { validateCustomerInformation, validatePaymentMethod } from '@/utils/FormValidation'
+import { validateCustomerInformation } from '@/utils/FormValidation'
 
 // Reactive reference to store customer information
 const customerInformation = ref({
@@ -64,12 +64,12 @@ const updateCustomerInformation = (newInfo) => {
 const handleValidate = () => {
   // Validate customer information and payment method
   const errors = validateCustomerInformation(customerInformation.value)
-  const paymentErrors = validatePaymentMethod()
+  // const paymentErrors = validatePaymentMethod()
 
   // Check if there are any errors
-  if (errors.length || paymentErrors.length) {
+  if (errors.length) {
     // Combine all errors into a single string
-    const allErrors = [...errors, ...paymentErrors].join('\n')
+    const allErrors = [...errors].join('\n')
     // Display all errors in a single toast
     toast.error(allErrors, {
       autoClose: 5000,
@@ -77,10 +77,11 @@ const handleValidate = () => {
     })
     // Scroll to the customer information section
     scrollToCustomerInformation()
-  } else {
-    // Display success message if no errors
-    toast.success('Order confirmed successfully!')
-  }
+  } 
+  // else {
+  //   // Display success message if no errors
+  //   toast.success('Order confirmed successfully!')
+  // }
 }
 
 // Function to scroll to the customer information section

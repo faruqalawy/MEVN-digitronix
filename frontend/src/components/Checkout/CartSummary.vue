@@ -34,7 +34,7 @@
         Your Order
       </h3>
       <div class="border-b-2 border-[#d9d9d9] hidden lg:block mt-7"></div>
-      <div v-for="product in cart" :key="product.id" class="border-b-2 border-[#d9d9d9] py-7">
+      <div v-for="product in cart" :key="product._id" class="border-b-2 border-[#d9d9d9] py-7">
         <div class="grid grid-cols-12 gap-2 items-center">
           <div class="col-span-2">
             <img :src="product.image" :alt="product.name" />
@@ -69,18 +69,26 @@
 <script setup>
 import LoadSpinner from '../Other/LoadSpinner.vue'
 import { currencyFormat } from '@/utils/CurrencyFormat'
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, onBeforeUnmount } from 'vue'
 import useCartStore from '@/stores/cartStore'
 
 const cartStore = useCartStore()
-const { cart, loadCart, error, isLoading, totalCartPrice } = cartStore
+const { totalCartPrice } = cartStore
+const cart = computed(() => cartStore.cart)
+const isLoading = computed(() => cartStore.isLoading)
+const error = computed(() => cartStore.error)
+
 
 const isCartOpen = ref(false)
 const isLargeScreen = computed(() => window.innerWidth >= 1024)
 
 onMounted(() => {
-  loadCart()
+  cartStore.loadCart();
   window.addEventListener('resize', handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
 })
 
 const handleResize = () => {

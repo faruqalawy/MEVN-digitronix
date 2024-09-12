@@ -10,7 +10,7 @@
   </div>
 
   <div v-if="!error && !isLoading && cart.length > 0">
-    <div v-for="product in cart" :key="product.id">
+    <div v-for="product in cart" :key="product._id">
       <div class="grid grid-cols-8 my-7 items-center gap-2.5">
         <div class="col-span-2">
           <img :src="product.image" :alt="product.name" class="lg:w-9/12" />
@@ -28,7 +28,7 @@
             <input
               type="number"
               class="cart-number w-full text-center border-none focus:outline-none appearance-none"
-              v-model="product.quantity"
+              v-model.number="product.quantity"
             />
             <button
               class="bg-green-500/60 hover:bg-green-500 text-white px-4 py-2 focus:outline-none"
@@ -43,7 +43,7 @@
         </div>
         <div
           class="col-span-1 flex justify-center cursor-pointer"
-          @click="deleteFromCart(product.name)"
+          @click="deleteFromCart(product._id)"
         >
           <i class="fa-solid fa-trash"></i>
         </div>
@@ -59,29 +59,34 @@
 <script setup>
 import LoadSpinner from '@/components/Other/LoadSpinner.vue'
 import { useCartStore } from '@/stores/cartStore'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { currencyFormat } from '@/utils/CurrencyFormat'
 
 const cartStore = useCartStore()
 const cart = computed(() => cartStore.cart)
 const isLoading = computed(() => cartStore.isLoading)
 const error = computed(() => cartStore.error)
+
+onMounted(() => {
+  cartStore.loadCart();
+})
+
 // Increment product quantity
 async function handleIncrement(product) {
   const newQuantity = product.quantity + 1
-  await cartStore.updateQuantity(product.name, newQuantity)
+  await cartStore.updateQuantity(product._id, newQuantity)
 }
 
 // Decrement product quantity
 async function handleDecrement(product) {
   if (product.quantity > 1) {
     const newQuantity = product.quantity - 1
-    await cartStore.updateQuantity(product.name, newQuantity)
+    await cartStore.updateQuantity(product._id, newQuantity)
   }
 }
 
 // Delete a product from the cart
-async function deleteFromCart(productName) {
-  await cartStore.deleteFromCart(productName)
+async function deleteFromCart(item_id) {
+  await cartStore.deleteFromCart(item_id)
 }
 </script>

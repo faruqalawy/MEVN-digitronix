@@ -82,10 +82,10 @@ function handleDecrement() {
 }
 
 function handleAddToCart() {
-  if (isLoggedIn) {
+  if (isLoggedIn.value) {
     const existingProduct = cartStore.cart.find((item) => item.name === product.value.name)
     if (existingProduct) {
-      cartStore.updateQuantity(product.value.name, existingProduct.quantity + quantity.value)
+      cartStore.updateQuantity(existingProduct._id, existingProduct.quantity + quantity.value)
       toast.success('Product quantity has been updated.', {
         autoClose: 5000,
         theme: 'colored',
@@ -93,14 +93,13 @@ function handleAddToCart() {
         pauseOnHover: false
       })
     } else {
-      const newCart = {
-        id: product.value.id,
+      const newCartItem = {
         name: product.value.name,
         price: product.value.price,
         quantity: quantity.value,
         image: product.value.image
       }
-      cartStore.addToCart(newCart)
+      cartStore.addToCart(newCartItem)
     }
     quantity.value = 1 // Reset quantity to 1 after adding to cart
   } else {

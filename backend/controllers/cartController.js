@@ -78,3 +78,25 @@ export const destroy = async (req, res) => {
   }
 };
 
+export const destroyAll = async (req, res) => {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const user = await User.findById(req.user._id).populate('carts');
+    if (!user) return res.status(404).send("User not found");
+
+    // Clear all cart the user has
+    await Cart.deleteMany({_id: { $in: user.carts}});
+
+    // Delete all cart id in the cars array
+    user.carts = [];
+    await user.save();
+
+    res.status(200).json({ message: "Carts deleted successfully" });
+  } catch (error) {
+    return res.status(500).json("Error deleting: " + error.message);
+  }
+}
+

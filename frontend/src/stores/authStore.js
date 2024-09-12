@@ -4,6 +4,7 @@ import authService from "../services/authService";
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref(null);
+    const sessionID = ref(null);  // Pastikan hanya dikelola di store
     const error = ref(null);
     const isLoading = ref(false);
 
@@ -12,7 +13,7 @@ export const useAuthStore = defineStore('auth', () => {
         error.value = null;
         try {
             const response = await authService.register(username, email, password);
-            user.value = response.data.user;
+            sessionID.value = response.data.sessionID;
             return response;
         } catch (error) {
             error.value = error.message;
@@ -26,28 +27,27 @@ export const useAuthStore = defineStore('auth', () => {
         isLoading.value = true;
         error.value = null;
         try {
-          const response = await authService.login(username, password);
-          user.value = response.data.user;
-          return response;
+            const response = await authService.login(username, password);
+            sessionID.value = response.data.sessionID;
+            return response;
         } catch (error) {
-          error.value = error.message; // Ambil pesan dari error
-          throw error; // Tetap melempar error agar bisa ditangani di composable
+            error.value = error.message;
+            throw error;
         } finally {
-          isLoading.value = false;
+            isLoading.value = false;
         }
-      };
-      
-    
+    }
 
     const logout = async () => {
         isLoading.value = true;
         error.value = null;
         try {
             await authService.logout();
-            return user.value = null;
+            sessionID.value = null;
+            user.value = null;  // Pastikan user juga dihapus
         } catch (error) {
             error.value = error.message;
-            throw error; // Tetap melempar error agar bisa ditangani di composable
+            throw error;
         } finally {
             isLoading.value = false;
         }
@@ -57,9 +57,9 @@ export const useAuthStore = defineStore('auth', () => {
         isLoading.value = true;
         error.value = null;
         try {
-            const user = await authService.getCurrentUser();
-            if (user) {
-                return this.user.value = user;
+            const currentUser = await authService.getCurrentUser();
+            if (currentUser) {
+                user.value = currentUser;
             }
         } catch (error) {
             error.value = error.message;
@@ -71,6 +71,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     return {
         user,
+        sessionID,
         error,
         isLoading,
         register,

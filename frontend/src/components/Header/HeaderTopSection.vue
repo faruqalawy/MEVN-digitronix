@@ -12,8 +12,8 @@
     <div>
       <!-- Small display for right side of component -->
       <div class="flex gap-3 sm:gap-5 md:hidden">
-        <button v-if="!user" type="submit" @click="login" class="text-white">Login</button>
-        <button v-if="user" type="submit" @click="logout" class="text-white">Logout</button>
+        <button v-if="!isLoggedIn" type="submit" @click="login" class="text-white">Login</button>
+        <button v-if="isLoggedIn" type="submit" @click="logout" class="text-white">Logout</button>
 
         <HeaderCart />
       </div>
@@ -47,9 +47,11 @@ import SearchBar from './SearchBar.vue'
 
 import getCategories from '@/composable/getCategories'
 import { useAuth } from '@/composable/useAuth'
+import { useAuthStatus } from '@/composable/useAuthStatus'
 
 const { categories } = getCategories()
-const { user, logout } = useAuth()
+const { logout } = useAuth()
+const { isLoggedIn } = useAuthStatus()
 
 const route = useRoute()
 const router = useRouter()

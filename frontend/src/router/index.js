@@ -5,6 +5,7 @@ import ProductsByCategory from '../views/ProductsByCategory.vue';
 import ProductDetail from '../views/ProductDetail.vue';
 import CartPage from '../views/CartPage.vue';
 import CheckoutPage from '../views/CheckoutPage.vue';
+import PaymentSuccess from '@/views/PaymentSuccess.vue';
 import SearchPage from '../views/SearchPage.vue';
 import TestProductDetail from '@/components/ProductDetail/ProductOverview.vue';
 import RegisterPage from '../views/RegisterPage.vue';
@@ -52,6 +53,12 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/checkout/success',
+      name: 'checkout-success',
+      component: PaymentSuccess,
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/test',
       name: 'test',
       component: TestProductDetail,
@@ -85,7 +92,7 @@ const router = createRouter({
 // just can be loaded by user that has been login already
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-  const currentUser = authStore.user || localStorage.getItem('currentUser')
+  const currentUser = authStore.user || localStorage.getItem('sessionID')
   
   if (to.matched.some(record => record.meta.requiresAuth) && !currentUser) {
     // Jika halaman memerlukan autentikasi dan pengguna belum login, arahkan ke halaman login

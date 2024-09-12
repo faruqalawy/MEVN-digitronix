@@ -72,7 +72,7 @@ useHead({
 
 <template>
   <div id="app">
-    <header v-if="route.name !== 'login' && route.name !== 'register'">
+    <header v-if="route.name !== 'login' && route.name !== 'register' && route.name !== 'checkout-success'">
       <HeaderView />
     </header>
 
@@ -80,7 +80,7 @@ useHead({
       <RouterView />
     </main>
 
-    <footer v-if="route.name !== 'login' && route.name !== 'register'">
+    <footer v-if="route.name !== 'login' && route.name !== 'register' && route.name !== 'checkout-success'">
       <FooterView />
     </footer>
   </div>

@@ -1,10 +1,11 @@
 // stores/cartStore.js
 import { defineStore } from 'pinia'
+import cartService from '@/services/cartService';
 import { toast } from 'vue3-toastify'
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    cart: JSON.parse(sessionStorage.getItem('cart')) || [],
+    cart: [],
     error: null,
     isLoading: false,
   }),
@@ -18,25 +19,25 @@ export const useCartStore = defineStore('cart', {
       this.error = null
       this.isLoading = true
       try {
-        const savedCart = JSON.parse(sessionStorage.getItem('cart'))
-        if (savedCart) {
-          this.cart = savedCart
-        }
+        const response = await cartService.getCartItems();
+        this.cart = response.data
       } catch (err) {
-        this.error = err.message
+        this.error = err.response?.data?.message || err.message
       } finally {
         this.isLoading = false
       }
     },
-    async addToCart(product) {
+
+    async addToCart(newItem) {
       this.error = null
       this.isLoading = true
       try {
-        const existingProduct = this.cart.find(item => item.name === product.name)
+        const response = await cartService.addToCart(newItem)
+        const existingProduct = this.cart.find(item => item.name === newItem.name)
         if (existingProduct) {
-          existingProduct.quantity += product.quantity
+          existingProduct.quantity += newItem.quantity
         } else {
-          this.cart.push(product)
+          this.cart.push(response.data)
           toast.success("This product has been added to cart.", {
             autoClose: 5000,
             theme: "colored",
@@ -44,50 +45,63 @@ export const useCartStore = defineStore('cart', {
             pauseOnHover: false
           });
         }
-        this.saveCartToSessionStorage()
       } catch (err) {
-        this.error = err.message
+        this.error = err.response?.data?.message || err.message
         console.error('Error adding product to cart:', this.error)
       } finally {
         this.isLoading = false
       }
     },
-    async updateQuantity(productName, newQuantity) {
+
+    async updateQuantity(item_id, newQuantity) {
       this.error = null
       this.isLoading = true
       try {
-        const product = this.cart.find(item => item.name === productName)
+        const product = this.cart.find(item => item._id === item_id)
         if (product) {
           product.quantity = newQuantity
+          await cartService.updateCartItem(item_id, newQuantity)
           if (product.quantity <= 0) {
-            this.deleteFromCart(productName)
-          } else {
-            this.saveCartToSessionStorage()
+            this.deleteFromCart(item_id)
           }
         } else {
           throw new Error('Product not found')
         }
       } catch (err) {
-        this.error = err.message
+        this.error = err.response?.data?.message || err.message
       } finally {
         this.isLoading = false
       }
     },
-    async deleteFromCart(productName) {
+
+    async deleteFromCart(item_id) {
       this.error = null
       this.isLoading = true
       try {
-        this.cart = this.cart.filter(item => item.name !== productName)
-        this.saveCartToSessionStorage()
+        const product = this.cart.find(item => item._id === item_id)
+        if (product) {
+          await cartService.deleteCartItem(item_id)
+          this.cart = this.cart.filter(item => item._id !== item_id)
+        }
       } catch (err) {
-        this.error = err.message
+        this.error = err.response?.data?.message || err.message
       } finally {
         this.isLoading = false
       }
     },
-    saveCartToSessionStorage() {
-      sessionStorage.setItem('cart', JSON.stringify(this.cart))
-    },
+
+    async clearCart() {
+      this.error = null
+      this.isLoading = true
+      try {
+        await cartService.clearCart()
+        this.cart = []
+      } catch (err) {
+        this.error = err.response?.data?.message || err.message
+      } finally {
+        this.isLoading = false
+      }
+    }
   },
 })
 

@@ -4,7 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import session from "express-session";
-// import cookieParser from "cookie-parser";
+import MongoStore from "connect-mongo";
+
 
 import passport from "passport";
 import LocalStrategy from "passport-local";
@@ -31,18 +32,22 @@ mongoose
 // middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URL,
+      collectionName: 'sessions'
+    }),
+    rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
       secure: "auto",

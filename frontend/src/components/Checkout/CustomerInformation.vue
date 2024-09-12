@@ -32,19 +32,6 @@
       />
       <input
         type="text"
-        v-model="localCustomerInformation.streetAddress"
-        placeholder="Street Address*"
-        class="col-span-3"
-        required
-      />
-      <input
-        type="text"
-        v-model="localCustomerInformation.unit"
-        placeholder="Unit, rt, rw, etc"
-        class="col-span-3"
-      />
-      <input
-        type="text"
         v-model="localCustomerInformation.province"
         placeholder="Province*"
         class="col-span-2"
@@ -63,6 +50,19 @@
         placeholder="Postcode / ZIP*"
         class="col-span-2"
         required
+      />
+      <input
+        type="text"
+        v-model="localCustomerInformation.streetAddress"
+        placeholder="Street Address*"
+        class="col-span-3"
+        required
+      />
+      <input
+        type="text"
+        v-model="localCustomerInformation.unit"
+        placeholder="Unit, rt, rw, etc"
+        class="col-span-3"
       />
       <input
         type="text"

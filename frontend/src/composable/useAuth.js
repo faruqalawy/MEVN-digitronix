@@ -12,19 +12,19 @@ export function useAuth() {
   const isLoading = computed(() => authStore.isLoading)
 
   // Mengambil user dari localStorage saat composable ini diinisialisasi
-  const initializeUser = () => {
-    const storedUser = localStorage.getItem('currentUser')
-    if (storedUser) {
-      authStore.user = JSON.parse(storedUser)
+  const initializeSession = () => {
+    const storedSessionID = localStorage.getItem('sessionID')
+    if (storedSessionID) {
+      authStore.sessionID = JSON.parse(storedSessionID)
     }
   }
-
-  initializeUser();
+  
+  initializeSession();
 
   const register = async (username, email, password) => {
     try {
       const response = await authStore.register(username, email, password)
-      localStorage.setItem('currentUser', JSON.stringify(response.data.user))
+      localStorage.setItem('sessionID', JSON.stringify(response.data.sessionID))
       router.push('/')
     } catch (error) {
       toast.error(error.message, {
@@ -38,7 +38,7 @@ export function useAuth() {
   const login = async (username, password) => {
     try {
       const response = await authStore.login(username, password)
-      localStorage.setItem('currentUser', JSON.stringify(response.data.user))
+      localStorage.setItem('sessionID', JSON.stringify(response.data.sessionID))
       router.push('/')
     } catch (error) {
       toast.error(error.message, {
@@ -52,7 +52,7 @@ export function useAuth() {
   const logout = async () => {
     try {
       await authStore.logout()
-      localStorage.removeItem('currentUser')
+      localStorage.removeItem('sessionID')
       router.push('/login')
     } catch (error) {
       toast.error(error.message, {
@@ -76,6 +76,7 @@ export function useAuth() {
   }
 
   return {
+    sessionID: authStore.sessionID,
     user: authStore.user,
     error,
     isLoading,

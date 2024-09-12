@@ -4,7 +4,7 @@
     <i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff"></i>
     <!-- Cart icon image -->
     <!-- Display the number of items in the cart -->
-    <span class="bg-white rounded-full px-2">{{ cart.length }}</span>
+    <span class="bg-white rounded-full px-2">{{ isLoggedIn ? cart.length : 0 }}</span>
   </div>
 
   <!-- Background overlay for cart preview -->
@@ -41,51 +41,53 @@
         </div>
 
         <!-- Iterate over cart items and display each product -->
-        <div v-for="product in cart" :key="product.id">
-          <div class="grid grid-cols-12">
-            <img :src="product.image" alt="product.name" class="w-10 h-fit col-span-2" />
-            <!-- Product image -->
-            <div class="col-span-6 flex flex-col gap-1">
-              <h5>{{ product.name }}</h5>
-              <!-- Product name -->
-              <div class="flex items-center max-w-48 border rounded-md overflow-hidden">
-                <!-- Button to decrease product quantity -->
-                <button
-                  class="bg-red-500/60 hover:bg-red-500 text-white px-4 py-2 focus:outline-none"
-                  @click="handleDecrement(product)"
-                >
-                  -
-                </button>
-                <!-- Input field for setting product quantity -->
-                <input
-                  type="number"
-                  class="cart-number w-full text-center border-none focus:outline-none appearance-none"
-                  v-model="product.quantity"
-                />
-                <!-- Button to increase product quantity -->
-                <button
-                  class="bg-green-500/60 hover:bg-green-500 text-white px-4 py-2 focus:outline-none"
-                  @click="handleIncrement(product)"
-                >
-                  +
-                </button>
+        <div v-if="isLoggedIn">
+          <div v-for="product in cart" :key="product.id">
+            <div class="grid grid-cols-12">
+              <img :src="product.image" alt="product.name" class="w-10 h-fit col-span-2" />
+              <!-- Product image -->
+              <div class="col-span-6 flex flex-col gap-1">
+                <h5>{{ product.name }}</h5>
+                <!-- Product name -->
+                <div class="flex items-center max-w-48 border rounded-md overflow-hidden">
+                  <!-- Button to decrease product quantity -->
+                  <button
+                    class="bg-red-500/60 hover:bg-red-500 text-white px-4 py-2 focus:outline-none"
+                    @click="handleDecrement(product)"
+                  >
+                    -
+                  </button>
+                  <!-- Input field for setting product quantity -->
+                  <input
+                    type="number"
+                    class="cart-number w-full text-center border-none focus:outline-none appearance-none"
+                    v-model.number="product.quantity"
+                  />
+                  <!-- Button to increase product quantity -->
+                  <button
+                    class="bg-green-500/60 hover:bg-green-500 text-white px-4 py-2 focus:outline-none"
+                    @click="handleIncrement(product)"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <h5 class="col-span-1">x{{ product.quantity }}</h5>
+              <!-- Display product quantity -->
+              <div class="flex flex-col justify-between items-end col-span-3">
+                <!-- Button to remove the product from the cart -->
+                <i
+                  class="fa-regular fa-circle-xmark cursor-pointer"
+                  @click="deleteFromCart(product._id)"
+                ></i>
+                <h5>Rp {{ currencyFormat(product.price) }}</h5>
+                <!-- Display product price -->
               </div>
             </div>
-            <h5 class="col-span-1">x{{ product.quantity }}</h5>
-            <!-- Display product quantity -->
-            <div class="flex flex-col justify-between items-end col-span-3">
-              <!-- Button to remove the product from the cart -->
-              <i
-                class="fa-regular fa-circle-xmark cursor-pointer"
-                @click="deleteFromCart(product.name)"
-              ></i>
-              <h5>Rp {{ currencyFormat(product.price) }}</h5>
-              <!-- Display product price -->
-            </div>
-          </div>
 
-          <div class="border-b-2 border-lightGray w-full my-5"></div>
-          <!-- Separator line for each product -->
+            <div class="border-b-2 border-lightGray w-full my-5"></div>
+            <!-- Separator line for each product -->
+          </div>
         </div>
       </div>
 
@@ -106,7 +108,7 @@
         <a href="/login" class="ml-2 text-blue-500 underline hover:text-blue-700"> Login here </a>
       </h5>
 
-      <div class="bottom">
+      <div class="bottom" v-if="isLoggedIn">
         <!-- Display subtotal if there are items in the cart -->
         <div v-if="totalCartPrice > 0" class="flex justify-between">
           <h5>SubTotal</h5>
@@ -114,7 +116,7 @@
         </div>
         <div v-if="totalCartPrice > 0" class="border-b-2 border-lightGray w-full my-5"></div>
 
-        <div class="flex flex-col gap-3" v-if="isLoggedIn">
+        <div class="flex flex-col gap-3">
           <!-- Link to view the cart page -->
           <router-link :to="{ name: 'cart' }" @click="closeCart">
             <button
@@ -140,12 +142,16 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCartStore } from '@/stores/cartStore'
 import { useAuthStatus } from '@/composable/useAuthStatus'
 import { currencyFormat } from '@/utils/CurrencyFormat'
 import LoadSpinner from '../Other/LoadSpinner.vue'
+
+onMounted(() => {
+  cartStore.loadCart()
+})
 
 // Initialize the cart store
 const cartStore = useCartStore()
@@ -177,21 +183,21 @@ const closeCart = () => {
 }
 
 // Delete a product from the cart
-async function deleteFromCart(productName) {
-  await cartStore.deleteFromCart(productName)
+async function deleteFromCart(item_id) {
+  await cartStore.deleteFromCart(item_id)
 }
 
 // Increment product quantity
 async function handleIncrement(product) {
   const newQuantity = product.quantity + 1
-  await cartStore.updateQuantity(product.name, newQuantity)
+  await cartStore.updateQuantity(product._id, newQuantity)
 }
 
 // Decrement product quantity
 async function handleDecrement(product) {
   if (product.quantity > 1) {
     const newQuantity = product.quantity - 1
-    await cartStore.updateQuantity(product.name, newQuantity)
+    await cartStore.updateQuantity(product._id, newQuantity)
   }
 }
 
