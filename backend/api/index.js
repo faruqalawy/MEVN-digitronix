@@ -9,12 +9,12 @@ import MongoStore from "connect-mongo";
 
 import passport from "passport";
 import LocalStrategy from "passport-local";
-import User from "./models/userModel.js";
+import User from "../models/userModel.js";
 
-import AuthRoute from "./routes/authRoute.js";
-import CartRoute from "./routes/cartRoute.js";
-import CategoryRoute from "./routes/categoryRoute.js";
-import TransactionRoute from "./routes/transactionRoute.js";
+import AuthRoute from "../routes/authRoute.js";
+import CartRoute from "../routes/cartRoute.js";
+import CategoryRoute from "../routes/categoryRoute.js";
+import TransactionRoute from "../routes/transactionRoute.js";
 
 const app = express();
 dotenv.config();
