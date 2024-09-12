@@ -41,7 +41,6 @@ export default function getCategories(categoryId = null) {
           id: product._id
         }))
       }
-      // console.log(category.value)
     } catch (err) {
       error.value = err.message
     } finally {

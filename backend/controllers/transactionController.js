@@ -23,7 +23,6 @@ export const createTransaction = async (req, res) => {
         item_details: itemDetails,
         customer_details: customerDetails
     }
-    console.log(transactionParamaters)
 
     try {
         // create transaction to midtrans snap

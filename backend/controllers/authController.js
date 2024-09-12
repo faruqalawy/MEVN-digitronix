@@ -29,8 +29,8 @@ export const login = (req, res) => {
   // Pada titik ini, req.user sudah tersedia karena middleware passport.authenticate sudah memverifikasinya
   const sessionID = req.sessionID;
 
-  console.log("Session ID = " + sessionID);
-  console.log("User =", req.user); // Anda bisa log data user untuk debugging jika diperlukan
+  // console.log("Session ID = " + sessionID);
+  // console.log("User =", req.user); // Anda bisa log data user untuk debugging jika diperlukan
   
   res.status(200).json({
     user: req.user,  // Mengirim data user yang sudah di-autentikasi

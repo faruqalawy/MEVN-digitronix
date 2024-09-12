@@ -65,11 +65,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req, res, next) => {
-  console.log("Session:", req.session);
-  console.log("User:", req.user);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log("Session:", req.session);
+//   console.log("User:", req.user);
+//   next();
+// });
 
 // routes
 app.use("/", AuthRoute);
