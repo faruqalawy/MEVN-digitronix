@@ -32,7 +32,7 @@ mongoose
 // middleware
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL, process.env.PRODUCTION_CLIENT_URL],
+    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
     credentials: true,
   })
 );
