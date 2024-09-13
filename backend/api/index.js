@@ -86,3 +86,5 @@ app.listen(process.env.APP_PORT, () => {
     `Server running on port http://localhost:${process.env.APP_PORT}`
   );
 });
+
+module.exports = app;

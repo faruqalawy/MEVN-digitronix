@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 import session from "express-session";
 import MongoStore from "connect-mongo";
-// import flash from "connect-flash"
+import flash from "connect-flash"
 
 import passport from "passport";
 import LocalStrategy from "passport-local";
@@ -71,7 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 //   next();
 // });
 
-// app.use(flash())
+app.use(flash())
 
 // routes
 app.use("/", AuthRoute);
