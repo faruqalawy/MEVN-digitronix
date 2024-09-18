@@ -12,31 +12,31 @@
           <NavSubMenu />
           <li>
             <router-link
-              :to="{ name: 'productsByCategory', params: { id: '66d70efbbee536801183162e' } }"
+              :to="{ name: 'productsByCategory', params: { id: '66e29b34aa43058af2ccce05' } }"
               >Gadgets</router-link
             >
           </li>
           <li>
             <router-link
-              :to="{ name: 'productsByCategory', params: { id: '66d70efbbee5368011831651' } }"
+              :to="{ name: 'productsByCategory', params: { id: '66e29b34aa43058af2ccce28' } }"
               >Photography</router-link
             >
           </li>
           <li>
             <router-link
-              :to="{ name: 'productsByCategory', params: { id: '66d70efbbee5368011831635' } }"
+              :to="{ name: 'productsByCategory', params: { id: '66e29b34aa43058af2ccce0c' } }"
               >Gaming</router-link
             >
           </li>
           <li>
             <router-link
-              :to="{ name: 'productsByCategory', params: { id: '66d70efbbee536801183164a' } }"
+              :to="{ name: 'productsByCategory', params: { id: '66e29b34aa43058af2ccce21' } }"
               >PC & Laptops</router-link
             >
           </li>
           <li>
             <router-link
-              :to="{ name: 'productsByCategory', params: { id: '66d70efbbee536801183163c' } }"
+              :to="{ name: 'productsByCategory', params: { id: '66e29b34aa43058af2ccce13' } }"
               >Home Appliances</router-link
             >
           </li>
