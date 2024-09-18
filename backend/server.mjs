@@ -50,7 +50,7 @@ app.use(
     rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
-      secure: "auto",
+      secure: true,
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
