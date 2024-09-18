@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  Backend-MEVN-Digitronix:
+    container_name: Backend-MEVN-Digitronix
+    image: backend-digitronix:1.0
+    ports:
+      - 5000:5000
+    env_file:
+      - .env
