@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import flash from "connect-flash";
+// import flash from "connect-flash";
 
 import passport from "passport";
 import LocalStrategy from "passport-local";
@@ -50,7 +50,7 @@ app.use(
     rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
-      secure: true,
+      secure: 'auto',
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
@@ -71,7 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 //   next();
 // });
 
-app.use(flash());
+// app.use(flash());
 
 // routes
 app.use("/", AuthRoute);
