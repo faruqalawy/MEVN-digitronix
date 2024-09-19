@@ -64,6 +64,23 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+// passport.deserializeUser(async (id, done) => {
+//   try {
+//     // Jika id berupa string bukan ObjectId, cari berdasarkan username
+//     let user;
+//     if (mongoose.isValidObjectId(id)) {
+//       user = await User.findById(id);
+//     } else {
+//       user = await User.findOne({ username: id }); // Cari berdasarkan username
+//     }
+    
+//     done(null, user);
+//   } catch (err) {
+//     done(err, null);
+//   }
+// });
+
+
 
 // app.use((req, res, next) => {
 //   console.log("Session:", req.session);
