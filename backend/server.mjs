@@ -32,7 +32,7 @@ mongoose
 // middleware
 app.use(
   cors({
-    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
+    origin: ["https://digitronix.vercel.app/", "http://localhost:5173"],
     credentials: true,
   })
 );
@@ -47,7 +47,7 @@ app.use(
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
     }),
-    rolling: true, // Updates the session expiration time each time a request is made
+    // rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
       secure: 'auto',
