@@ -33,7 +33,7 @@ mongoose
 app.use(
   cors({
     origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
-    credentials: "include",
+    credentials: true,
   })
 );
 app.use(express.json());
