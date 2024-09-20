@@ -33,7 +33,7 @@ mongoose
 app.use(
   cors({
     origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
-    credentials: true,
+    credentials: "include",
   })
 );
 app.use(express.json());
@@ -46,11 +46,13 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
+      autoRemove: "interval",
+      autoRemoveInterval: 1320,
     }),
     // rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
-      secure: 'auto',
+      secure: "auto",
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
@@ -73,14 +75,12 @@ passport.deserializeUser(User.deserializeUser());
 //     } else {
 //       user = await User.findOne({ username: id }); // Cari berdasarkan username
 //     }
-    
+
 //     done(null, user);
 //   } catch (err) {
 //     done(err, null);
 //   }
 // });
-
-
 
 // app.use((req, res, next) => {
 //   console.log("Session:", req.session);

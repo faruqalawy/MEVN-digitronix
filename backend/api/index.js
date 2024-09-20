@@ -33,7 +33,7 @@ mongoose
 app.use(
   cors({
     origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
-    credentials: true,
+    credentials: "include",
   })
 );
 app.use(express.json());
@@ -45,7 +45,7 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
-      collectionName: 'sessions'
+      collectionName: "sessions",
     }),
     rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
