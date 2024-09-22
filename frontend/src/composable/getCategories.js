@@ -12,7 +12,7 @@ export default function getCategories(categoryId = null) {
     isLoading.value = true
     try {
       const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories`, {
-        withcredentials: 'include'
+        withcredentials: true
       })
       categories.value = res.data.map((category) => ({
         ...category,
@@ -29,7 +29,7 @@ export default function getCategories(categoryId = null) {
     isLoading.value = true
     try {
       const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories/${id}`, {
-        withcredentials: 'include'
+        withcredentials: true
       })
       const categoryData = res.data
       if (!categoryData) {

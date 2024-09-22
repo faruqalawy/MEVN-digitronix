@@ -32,7 +32,7 @@ mongoose
 // middleware
 app.use(
   cors({
-    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
+    origin: "https://digitronix.vercel.app",
     credentials: true,
   })
 );
@@ -46,15 +46,16 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
-      autoRemove: "interval",
-      autoRemoveInterval: 1320,
+      // autoRemove: "interval",
+      // autoRemoveInterval: 1320,
     }),
     // rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
-      // domain: ".localhost",
+      domain: ".localhost",
       secure: "auto",
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
+      sameSite: "none"
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
   })
 );
@@ -66,27 +67,27 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-// passport.deserializeUser(async (id, done) => {
-//   try {
-//     // Jika id berupa string bukan ObjectId, cari berdasarkan username
-//     let user;
-//     if (mongoose.isValidObjectId(id)) {
-//       user = await User.findById(id);
-//     } else {
-//       user = await User.findOne({ username: id }); // Cari berdasarkan username
-//     }
 
+// passport.serializeUser(function(user, done) {
+//   console.log("Serialized User:", user._id);
+//   done(null, user._id);
+// });
+
+// passport.deserializeUser(async function(id, done) {
+//   try {
+//     const user = await User.findById(id);
+//     console.log("Deserialized User:", user);
 //     done(null, user);
 //   } catch (err) {
 //     done(err, null);
 //   }
 // });
 
-// app.use((req, res, next) => {
-//   console.log("Session:", req.session);
-//   console.log("User:", req.user);
-//   next();
-// });
+app.use((req, res, next) => {
+  console.log("Session:", req.session);
+  console.log("User:", req.user);
+  next();
+});
 
 // app.use(flash());
 

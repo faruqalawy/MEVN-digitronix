@@ -5,7 +5,7 @@ export const register = async (username, email, password) => {
     const response = await axios.post(
       `${import.meta.env.VITE_APP_BACKEND_URL}/register`,
       { username, email, password },
-      { withcredentials: 'include' }
+      { withcredentials: true }
     )
     return response
   } catch (error) {
@@ -18,7 +18,7 @@ export const login = async (username, password) => {
     const response = await axios.post(
       `${import.meta.env.VITE_APP_BACKEND_URL}/login`,
       { username, password },
-      { withcredentials: 'include' }
+      { withcredentials: true }
     )
     return response
   } catch (error) {
@@ -29,7 +29,7 @@ export const login = async (username, password) => {
 export const logout = async () => {
   try {
     await axios.post(`${import.meta.env.VITE_APP_BACKEND_URL}/logout`, {
-      withcredentials: 'include'
+      withcredentials: true
     })
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Logout failed')
@@ -39,7 +39,7 @@ export const logout = async () => {
 export const getCurrentUser = async () => {
   try {
     const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/currentUser`, {
-      withcredentials: 'include'
+      withcredentials: true
     })
     return response.data?.user
   } catch (error) {
