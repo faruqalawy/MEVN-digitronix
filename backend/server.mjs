@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 
 import session from "express-session";
 import MongoStore from "connect-mongo";
-// import flash from "connect-flash";
 
 import passport from "passport";
 import LocalStrategy from "passport-local";
@@ -16,8 +15,11 @@ import CartRoute from "./routes/cartRoute.js";
 import CategoryRoute from "./routes/categoryRoute.js";
 import TransactionRoute from "./routes/transactionRoute.js";
 
-const app = express();
 dotenv.config();
+const app = express();
+
+// Mengaktifkan trust proxy
+app.set('trust proxy', 3);
 
 // connect to database
 mongoose
@@ -30,19 +32,19 @@ mongoose
   });
 
 // middleware
-app.use(
-  cors({
-    origin: "https://digitronix.vercel.app",
-    credentials: true,
-  })
-);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
+  })
+);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
@@ -51,11 +53,10 @@ app.use(
     }),
     // rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
-      domain: ".localhost",
-      secure: "auto",
+      // domain: ".localhost",
+      secure: 'auto',
       httpOnly: true,
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-      sameSite: "none"
+      maxAge: Date.now() + 1000 * 60 * 60 * 24 * 7
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
   })
 );
@@ -88,8 +89,6 @@ app.use((req, res, next) => {
   console.log("User:", req.user);
   next();
 });
-
-// app.use(flash());
 
 // routes
 app.use("/", AuthRoute);

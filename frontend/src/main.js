@@ -11,6 +11,9 @@ import router from './router'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'animate.css'
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 const app = createApp(App)
 

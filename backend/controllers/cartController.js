@@ -4,7 +4,7 @@ import User from "../models/userModel.js";
 export const index = async (req, res) => {
   try {
     if (!req.user) {
-      return res.status(401).json({ message: "You must login first!" });
+      return res.status(401).json({ message: "You must login first" });
     }
     const user = await User.findById(req.user._id).populate("carts");
     if (!user) return res.status(404).send("User not found");
@@ -53,7 +53,7 @@ export const update = async (req, res) => {
 export const destroy = async (req, res) => {
   try {
     if (!req.user) {
-      return res.status(401).json({ message: "You must login first!" });
+      return res.status(401).json({ message: "You must login first" });
     }
 
     const { item_id } = req.params;
@@ -81,7 +81,7 @@ export const destroy = async (req, res) => {
 export const destroyAll = async (req, res) => {
   try {
     if (!req.user) {
-      return res.status(401).json({ message: "You must login first!" });
+      return res.status(401).json({ message: "You must login first" });
     }
 
     const user = await User.findById(req.user._id).populate('carts');

@@ -11,9 +11,7 @@ export default function getCategories(categoryId = null) {
   const loadCategories = async () => {
     isLoading.value = true
     try {
-      const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories`, {
-        withcredentials: true
-      })
+      const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories`)
       categories.value = res.data.map((category) => ({
         ...category,
         id: category._id
@@ -28,9 +26,7 @@ export default function getCategories(categoryId = null) {
   const loadCategoryById = async (id) => {
     isLoading.value = true
     try {
-      const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories/${id}`, {
-        withcredentials: true
-      })
+      const res = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/categories/${id}`)
       const categoryData = res.data
       if (!categoryData) {
         throw new Error('Category not found')
