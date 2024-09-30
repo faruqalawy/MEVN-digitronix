@@ -19,7 +19,7 @@ dotenv.config();
 const app = express();
 
 // Mengaktifkan trust proxy
-app.set('trust proxy', 3);
+app.set('trust proxy', 1);
 
 // connect to database
 mongoose
@@ -37,6 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
   })
 );
@@ -45,18 +46,19 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URL,
-      collectionName: "sessions",
-      // autoRemove: "interval",
-      // autoRemoveInterval: 1320,
-    }),
+    // store: MongoStore.create({
+    //   mongoUrl: process.env.MONGODB_URL,
+    //   collectionName: "sessions",
+    //   autoRemove: "interval",
+    //   autoRemoveInterval: 1320,
+    // }),
     // rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
       // domain: ".localhost",
       secure: 'auto',
       httpOnly: true,
-      maxAge: Date.now() + 1000 * 60 * 60 * 24 * 7
+      maxAge: Date.now() + 1000 * 60 * 60 * 24 * 7,
+      // sameSite: 'none'
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
   })
 );
@@ -96,8 +98,12 @@ app.use("/cart", CartRoute);
 app.use("/categories", CategoryRoute);
 app.use("/transactions", TransactionRoute);
 
+app.get('/', (req, res) => res.send('Express on Vercel'))
+
 app.listen(process.env.APP_PORT, () => {
   console.log(
     `Server running on port http://localhost:${process.env.APP_PORT}`
   );
 });
+
+module.exports = app
