@@ -45,7 +45,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     // store: MongoStore.create({
     //   mongoUrl: process.env.MONGODB_URL,
     //   collectionName: "sessions",
@@ -57,8 +57,8 @@ app.use(
       // domain: ".localhost",
       secure: 'auto',
       httpOnly: true,
-      maxAge: Date.now() + 1000 * 60 * 60 * 24 * 7,
-      // sameSite: 'none'
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      sameSite: 'none'
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
   })
 );
@@ -106,4 +106,5 @@ app.listen(process.env.APP_PORT, () => {
   );
 });
 
-module.exports = app
+export default app;
+
