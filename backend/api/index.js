@@ -46,6 +46,8 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URL,
       collectionName: "sessions",
+      autoRemove: "interval",
+      autoRemoveInterval: 1320,
     }),
     rolling: true, // Updates the session expiration time each time a request is made
     cookie: {
