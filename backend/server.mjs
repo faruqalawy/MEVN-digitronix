@@ -58,7 +58,7 @@ app.use(
       secure: 'auto',
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 7,
-      // sameSite: 'none'
+      sameSite: 'none'
     }, // 30 days in milliseconds (30 * 24 * 60 * 60)
   })
 );
