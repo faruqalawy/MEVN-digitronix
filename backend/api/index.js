@@ -32,7 +32,7 @@ mongoose
 // middleware
 app.use(
   cors({
-    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
+    origin: ["https://digitronix.my.id", "https://digitronix.vercel.app", "http://localhost:5173"],
     credentials: true,
   })
 );

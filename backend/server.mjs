@@ -38,7 +38,7 @@ app.use(
   cors({
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    origin: ["https://digitronix.vercel.app", "http://localhost:5173"],
+    origin: ["https://digitronix.my.id", "https://digitronix.vercel.app", "http://localhost:5173"],
   })
 );
 app.use(
