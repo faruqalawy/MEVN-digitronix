@@ -37,7 +37,9 @@
         </div>
         <!-- Show an error message if there is an error -->
         <div v-if="error" class="text-red-500 text-center">
-          {{ error }}
+          <span v-if="error !== 'You\'re unauthorized'">
+            {{ error }}
+          </span>
         </div>
 
         <!-- Iterate over cart items and display each product -->
